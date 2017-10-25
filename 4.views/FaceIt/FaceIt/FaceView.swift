@@ -8,13 +8,23 @@
 
 import UIKit
 
+@IBDesignable
 class FaceView: UIView {
-
+    
+    @IBInspectable
     var scale: CGFloat = 0.9
     
+    @IBInspectable
     var eyesOpen: Bool = true
     
+    @IBInspectable
     var mouthCurvature: Double = -0.5 // 1.0 is full smile and -1.0 is full frown
+    
+    @IBInspectable
+    var color: UIColor = UIColor.blue
+    
+    @IBInspectable
+    var lineWidth: CGFloat = 5.0
     
     private var skullRadius: CGFloat {
         return min(bounds.size.width, bounds.size.height) / 2 * scale
@@ -49,7 +59,7 @@ class FaceView: UIView {
             path.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
             path.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
         }
-        path.lineWidth = 5.0
+        path.lineWidth = lineWidth
         return path
     }
     
@@ -76,7 +86,7 @@ class FaceView: UIView {
         let path = UIBezierPath()
         path.move(to: start)
         path.addCurve(to: end, controlPoint1: cp1, controlPoint2: cp2)
-        path.lineWidth = 5.0
+        path.lineWidth = lineWidth
         return path
     }
     
@@ -87,7 +97,7 @@ class FaceView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        UIColor.blue.set()
+        color.set()
         pathForSkull().stroke()
         pathForEye(.left).stroke()
         pathForEye(.right).stroke()

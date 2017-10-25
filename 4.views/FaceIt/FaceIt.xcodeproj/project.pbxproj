@@ -13,6 +13,7 @@
 		507A70321F9F6B98002ADF63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507A70311F9F6B98002ADF63 /* Assets.xcassets */; };
 		507A70351F9F6B98002ADF63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507A70331F9F6B98002ADF63 /* LaunchScreen.storyboard */; };
 		507A703E1F9F6C59002ADF63 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A703D1F9F6C59002ADF63 /* FaceView.swift */; };
+		507A70401FA0A5E3002ADF63 /* FacialExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A703F1FA0A5E3002ADF63 /* FacialExpression.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		507A70341F9F6B98002ADF63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		507A70361F9F6B98002ADF63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507A703D1F9F6C59002ADF63 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
+		507A703F1FA0A5E3002ADF63 /* FacialExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacialExpression.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				507A702C1F9F6B98002ADF63 /* ViewController.swift */,
 				507A703D1F9F6C59002ADF63 /* FaceView.swift */,
 				507A702E1F9F6B98002ADF63 /* Main.storyboard */,
+				507A703F1FA0A5E3002ADF63 /* FacialExpression.swift */,
 				507A70361F9F6B98002ADF63 /* Info.plist */,
 			);
 			path = FaceIt;
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				507A702D1F9F6B98002ADF63 /* ViewController.swift in Sources */,
+				507A70401FA0A5E3002ADF63 /* FacialExpression.swift in Sources */,
 				507A702B1F9F6B98002ADF63 /* AppDelegate.swift in Sources */,
 				507A703E1F9F6C59002ADF63 /* FaceView.swift in Sources */,
 			);
