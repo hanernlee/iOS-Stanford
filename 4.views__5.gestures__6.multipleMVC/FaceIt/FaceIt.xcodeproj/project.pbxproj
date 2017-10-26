@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50468CFC1FA1E97A0063D625 /* EmotionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50468CFB1FA1E97A0063D625 /* EmotionsViewController.swift */; };
+		50468CFE1FA1FB9B0063D625 /* VCLLoggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50468CFD1FA1FB9B0063D625 /* VCLLoggingViewController.swift */; };
 		507A702B1F9F6B98002ADF63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A702A1F9F6B98002ADF63 /* AppDelegate.swift */; };
 		507A702D1F9F6B98002ADF63 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A702C1F9F6B98002ADF63 /* FaceViewController.swift */; };
 		507A70301F9F6B98002ADF63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507A702E1F9F6B98002ADF63 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		50468CFB1FA1E97A0063D625 /* EmotionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionsViewController.swift; sourceTree = "<group>"; };
+		50468CFD1FA1FB9B0063D625 /* VCLLoggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLLoggingViewController.swift; sourceTree = "<group>"; };
 		507A70271F9F6B98002ADF63 /* FaceIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		507A702A1F9F6B98002ADF63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		507A702C1F9F6B98002ADF63 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				50468CFB1FA1E97A0063D625 /* EmotionsViewController.swift */,
+				50468CFD1FA1FB9B0063D625 /* VCLLoggingViewController.swift */,
 				507A702C1F9F6B98002ADF63 /* FaceViewController.swift */,
 				507A703D1F9F6C59002ADF63 /* FaceView.swift */,
 				507A702E1F9F6B98002ADF63 /* Main.storyboard */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50468CFE1FA1FB9B0063D625 /* VCLLoggingViewController.swift in Sources */,
 				507A702D1F9F6B98002ADF63 /* FaceViewController.swift in Sources */,
 				507A70401FA0A5E3002ADF63 /* FacialExpression.swift in Sources */,
 				50468CFC1FA1E97A0063D625 /* EmotionsViewController.swift in Sources */,
