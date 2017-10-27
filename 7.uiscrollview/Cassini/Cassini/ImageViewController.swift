@@ -9,7 +9,7 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-    
+    // MARK: Model
     var imageURL: URL? {
         didSet {
             image = nil
@@ -20,6 +20,7 @@ class ImageViewController: UIViewController {
         }
     }
     
+    // MARK: Private Implementation
     private func fetchImage() {
         if let url = imageURL {
             let urlContents = try? Data(contentsOf: url)
@@ -29,11 +30,7 @@ class ImageViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        imageURL = DemoURL.stanford
-    }
-    
+    // MARK: View Controller Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -42,6 +39,7 @@ class ImageViewController: UIViewController {
         }
     }
     
+    // MARK: User Interface
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView.delegate = self
