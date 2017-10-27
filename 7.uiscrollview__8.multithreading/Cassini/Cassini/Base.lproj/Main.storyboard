@@ -71,19 +71,26 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0w4-dk-3Kt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Y2r-Bj-T1j">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.50265409360000002" green="0.45740985569999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0w4-dk-3Kt" firstAttribute="leading" secondItem="hSe-wM-h5g" secondAttribute="leading" id="8tX-rx-JJg"/>
-                            <constraint firstAttribute="trailing" secondItem="0w4-dk-3Kt" secondAttribute="trailing" id="Ey0-pn-3Vn"/>
-                            <constraint firstItem="0w4-dk-3Kt" firstAttribute="bottom" secondItem="EYe-bI-OZm" secondAttribute="bottom" id="i1G-BD-ai4"/>
-                            <constraint firstItem="0w4-dk-3Kt" firstAttribute="top" secondItem="hSe-wM-h5g" secondAttribute="top" id="mEv-VI-l1D"/>
+                            <constraint firstItem="0w4-dk-3Kt" firstAttribute="centerY" secondItem="Y2r-Bj-T1j" secondAttribute="centerY" id="1ZE-Ww-GMb"/>
+                            <constraint firstItem="0w4-dk-3Kt" firstAttribute="leading" secondItem="hSe-wM-h5g" secondAttribute="leading" id="3mF-ZK-WFy"/>
+                            <constraint firstItem="0w4-dk-3Kt" firstAttribute="top" secondItem="hSe-wM-h5g" secondAttribute="top" id="R1G-PQ-dbX"/>
+                            <constraint firstItem="0w4-dk-3Kt" firstAttribute="centerX" secondItem="Y2r-Bj-T1j" secondAttribute="centerX" id="ReG-HC-4m2"/>
+                            <constraint firstItem="0w4-dk-3Kt" firstAttribute="bottom" secondItem="EYe-bI-OZm" secondAttribute="bottom" id="k43-Gv-3ua"/>
+                            <constraint firstAttribute="trailing" secondItem="0w4-dk-3Kt" secondAttribute="trailing" id="tRD-FB-ndn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EYe-bI-OZm"/>
                     </view>
                     <navigationItem key="navigationItem" id="FBn-va-Bwr"/>
                     <connections>
                         <outlet property="scrollView" destination="0w4-dk-3Kt" id="tbh-v0-PgL"/>
+                        <outlet property="spinner" destination="Y2r-Bj-T1j" id="7c9-g9-rB2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nld-si-8Go" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,6 +148,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DNn-UL-UA2"/>
+        <segue reference="b7V-0H-xpz"/>
     </inferredMetricsTieBreakers>
 </document>
