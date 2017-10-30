@@ -12,8 +12,8 @@ class AsteroidBehaviour: UIDynamicBehavior, UICollisionBehaviorDelegate {
     private lazy var collider: UICollisionBehavior = {
         let behavior = UICollisionBehavior()
         
-        behavior.collisionMode = .everything
-        behavior.translatesReferenceBoundsIntoBoundary = true
+        behavior.collisionMode = .boundaries
+//        behavior.translatesReferenceBoundsIntoBoundary = true
         behavior.collisionDelegate = self
         
         return behavior
@@ -27,6 +27,12 @@ class AsteroidBehaviour: UIDynamicBehavior, UICollisionBehaviorDelegate {
         behavior.friction = 0
         behavior.resistance = 0
         
+        return behavior
+    }()
+    
+    lazy var acceleration: UIGravityBehavior = {
+        let behavior = UIGravityBehavior()
+        behavior.magnitude = 0
         return behavior
     }()
     
@@ -53,16 +59,40 @@ class AsteroidBehaviour: UIDynamicBehavior, UICollisionBehaviorDelegate {
         }
     }
     
+    var speedLimit: CGFloat = 300.0
+    
     override init() {
         super.init()
         addChildBehavior(collider)
         addChildBehavior(physics)
+        addChildBehavior(acceleration)
+        
+        physics.action = {
+            [weak self] in
+            for asteroid in self?.asteroids ?? [] {
+                let velocity = self!.physics.linearVelocity(for: asteroid)
+                let excessHorizontalVelocity = min(self!.speedLimit - velocity.x, 0)
+                let excessVerticalVelocity = min(self!.speedLimit - velocity.y, 0)
+                self!.physics.addLinearVelocity(CGPoint(x: excessHorizontalVelocity, y: excessVerticalVelocity), for: asteroid)
+            }
+        }
+    }
+    
+    override func willMove(to dynamicAnimator: UIDynamicAnimator?) {
+        super.willMove(to: dynamicAnimator)
+        
+        if dynamicAnimator == nil {
+            stopRecapturingWaywardAsteroids()
+        } else if !asteroids.isEmpty {
+            startRecapturingWaywardAsteroids()
+        }
     }
     
     func addAsteroid(_ asteroid: AsteroidView) {
         asteroids.append(asteroid)
         collider.addItem(asteroid)
         physics.addItem(asteroid)
+        acceleration.addItem(asteroid)
     }
     
     func removeAsteroid(_ asteroid: AsteroidView) {
@@ -71,6 +101,11 @@ class AsteroidBehaviour: UIDynamicBehavior, UICollisionBehaviorDelegate {
         }
         collider.removeItem(asteroid)
         physics.removeItem(asteroid)
+        acceleration.removeItem(asteroid)
+        
+        if asteroids.isEmpty {
+            stopRecapturingWaywardAsteroids()
+        }
     }
     
     func pushAllAsteroids(by magnitude: Range<CGFloat> = 0..<0.5) {
@@ -83,4 +118,35 @@ class AsteroidBehaviour: UIDynamicBehavior, UICollisionBehaviorDelegate {
     }
     
     private var asteroids = [AsteroidView]()
+    
+    var recaptureCount = 0
+    private weak var recaptureTimer: Timer?
+    
+    private func startRecapturingWaywardAsteroids() {
+        if recaptureTimer == nil {
+            recaptureTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) {
+                [weak self] timer in
+                
+                for asteroid in self?.asteroids ?? [] {
+                    if let asteroidFieldBounds = asteroid.superview?.bounds, !asteroidFieldBounds.contains(asteroid.center) {
+                        
+                        asteroid.center.x = asteroid.center.x.truncatingRemainder(dividingBy: asteroidFieldBounds.width)
+                        if asteroid.center.x < 0 { asteroid.center.x += asteroidFieldBounds.width }
+                        
+                        asteroid.center.y = asteroid.center.y.truncatingRemainder(dividingBy: asteroidFieldBounds.height)
+                        if asteroid.center.y < 0 { asteroid.center.y += asteroidFieldBounds.height }
+                        
+                        self?.dynamicAnimator?.updateItem(usingCurrentState: asteroid)
+                        self?.recaptureCount += 1
+                        
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    private func stopRecapturingWaywardAsteroids() {
+        recaptureTimer?.invalidate()
+    }
 }

@@ -34,7 +34,7 @@ class AsteroidsViewController: UIViewController {
     
     private func initializeIfNeeded() {
         if asteroidField == nil {
-            asteroidField = AsteroidFieldView(frame: CGRect(center: view.bounds.mid, size: view.bounds.size))
+            asteroidField = AsteroidFieldView(frame: CGRect(center: view.bounds.mid, size: view.bounds.size * Constants.asteroidFieldMagnitude))
             view.addSubview(asteroidField)
             
             let shipSize = view.bounds.size.minEdge * Constants.shipSizeToMinBoundsEdgeRatio
@@ -43,7 +43,7 @@ class AsteroidsViewController: UIViewController {
             
             repositionShip()
             
-            asteroidField.addAsteroids(count: Constants.initialAsteroidCount, exclusionZone: ship.convert(ships.bounds, to: asteroidField))
+            asteroidField.addAsteroids(count: Constants.initialAsteroidCount, exclusionZone: ship.convert(ship.bounds, to: asteroidField))
             asteroidField.asteroidBehaviour = asteroidBehaviour
         }
     }
@@ -75,6 +75,28 @@ class AsteroidsViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func burn(_ sender: UILongPressGestureRecognizer) {
+        switch sender.state {
+        case .began, .changed:
+            ship.direction = (sender.location(in: view) - ship.center).angle
+            burn()
+        case .ended:
+            endBurn()
+        default: break
+        }
+    }
+    
+    private func burn() {
+            ship.enginesAreFiring = true
+            asteroidBehaviour.acceleration.angle = ship.direction - CGFloat.pi
+            asteroidBehaviour.acceleration.magnitude = Constants.burnAcceleration
+    }
+    
+    private func endBurn() {
+        ship.enginesAreFiring = false
+        asteroidBehaviour.acceleration.magnitude = 0
     }
     
     // MARK: Constants
