@@ -63,7 +63,7 @@ class ExpressionEditorViewController: UITableViewController, UITextFieldDelegate
         super.viewWillAppear(animated)
         
         if let popoverPresentationController = navigationController?.popoverPresentationController,
-            popoverPresentationController.arrowDirection == .unknown
+            popoverPresentationController.arrowDirection != .unknown
         {
             navigationItem.leftBarButtonItem = nil
         }

@@ -131,7 +131,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y6P-iQ-5lr">
-                                                    <rect key="frame" x="155" y="6.5" width="65.5" height="29"/>
+                                                    <rect key="frame" x="155" y="7.5" width="65.5" height="29"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -176,7 +176,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iUV-Du-9iM">
-                                                    <rect key="frame" x="53" y="8" width="269" height="29"/>
+                                                    <rect key="frame" x="53" y="8.5" width="269" height="29"/>
                                                     <segments>
                                                         <segment title="Eyes Open"/>
                                                         <segment title="Eyes Closed"/>
@@ -203,7 +203,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rCT-pn-46H">
-                                                    <rect key="frame" x="38" y="7" width="299" height="29"/>
+                                                    <rect key="frame" x="38" y="8" width="299" height="29"/>
                                                     <segments>
                                                         <segment title="Frown"/>
                                                         <segment title="Smirk"/>
